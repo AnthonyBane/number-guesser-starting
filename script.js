@@ -21,23 +21,17 @@ function compareGuesses (human, computer, actual) {
     const humanDiff = Math.abs(actual - human);
     const computerDiff = Math.abs(actual - computer);
 
-    if (humanDiff === computerDiff) {
-        return true;
-    } else if (humanDiff > computerDiff) {
-        return false;
-    } else if (computerDiff > humanDiff) {
-        return true;
-    } else {console.log("Case error handling in script.compareGuesses()");}
+    return humanDiff <= computerDiff;
 }
 
 // Function to update computer/human winner score
 function updateScore (winner) {
     switch (winner) {
         case "human":
-            humanScore += 1;
+            humanScore++;
             return;
         case "computer":
-            computerScore += 1;
+            computerScore++;
             return;
         default:
             console.log("Case error in script.updateScore");
